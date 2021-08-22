@@ -52,7 +52,7 @@ io.on('connection', (socket) => {
         users.addUser(socket.id, params.name, params.room);
         const userList = await users.getUserList(params.room);
         io.to(params.room).emit('updateUserList', userList);
-        socket.emit('newMessage', generateMessage('Admin', params.room, 'Welcome to PunjabiChat app.'));
+        socket.emit('newMessage', generateMessage('Admin', params.room, 'Welcome to AmaliChat app.'));
         socket.broadcast.to(params.room).emit('newMessage', generateMessage('Admin', params.room, `${params.name} has joined.`));
 
         callback();
